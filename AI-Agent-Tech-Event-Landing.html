@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AgentCon, Bletchley - AI Agent Tech Event</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Glacial+Indifference:wght@400;700&display=swap" rel="stylesheet">
+<style>
+body {
+font-family: 'Glacial Indifference', sans-serif;
+}
+h1, h2, h3, h4, h5, h6 {
+font-family: 'Glacial Indifference', sans-serif;
+}
+</style>
+<link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<script>tailwind.config={theme:{extend:{colors:{primary:'#FF006B',secondary:'#3b82f6'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+<style>
+:where([class^="ri-"])::before { content: "\f3c2"; }
+.countdown-item {
+display: flex;
+flex-direction: column;
+align-items: center;
+margin: 0 0.5rem;
+}
+.countdown-value {
+font-size: 2.5rem;
+font-weight: 700;
+line-height: 1;
+}
+.countdown-label {
+font-size: 0.875rem;
+text-transform: uppercase;
+margin-top: 0.25rem;
+}
+.flip-card {
+perspective: 1000px;
+height: 100%;
+}
+.flip-card-inner {
+position: relative;
+width: 100%;
+height: 100%;
+transition: transform 0.6s;
+transform-style: preserve-3d;
+}
+.flip-card:hover .flip-card-inner {
+transform: rotateY(180deg);
+}
+.flip-card-front, .flip-card-back {
+position: absolute;
+width: 100%;
+height: 100%;
+backface-visibility: hidden;
+border-radius: 8px;
+overflow: hidden;
+}
+.flip-card-back {
+transform: rotateY(180deg);
+}
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.5.0/echarts.min.js"></script>
+</head>
+<body class="bg-white text-gray-800">
+<!-- Navigation -->
+<nav class="bg-white shadow-md py-4 fixed w-full z-50">
+<div class="container mx-auto px-6 flex justify-between items-center">
+<a href="#" class="flex items-center">
+<img src="https://static.readdy.ai/image/9f75aeb370e3faaf4a59fdfcb3fb62ad/074a244c9a5161e9bb49ec960c9bcd74.png" alt="AgentCon Logo" class="h-12">
+</a>
+<div class="hidden md:flex space-x-8">
+<a href="#why-come" class="font-medium hover:text-primary transition-colors">Why Come</a>
+<a href="#who-should-attend" class="font-medium hover:text-primary transition-colors">Who Should Attend</a>
+<a href="#speakers" class="font-medium hover:text-primary transition-colors">Speakers</a>
+<a href="#details" class="font-medium hover:text-primary transition-colors">Event Details</a>
+<a href="#venue" class="font-medium hover:text-primary transition-colors">Venue</a>
+</div>
+<button class="bg-primary text-white px-6 py-2 !rounded-button font-medium hover:bg-opacity-90 transition-colors whitespace-nowrap">Register Now</button>
+</div>
+</nav>
+<!-- Hero Section -->
+<section class="pt-24 relative" style="background-image: url('https://static.readdy.ai/image/9f75aeb370e3faaf4a59fdfcb3fb62ad/ef4ab7d0446f0431d50e96981c12d2ed.jpeg'); background-size: cover; background-position: center;">
+<div class="absolute inset-0 bg-gradient-to-r from-primary/80 to-primary/40"></div>
+<div class="container mx-auto px-6 py-32 relative z-10">
+<div class="max-w-3xl mx-auto text-center">
+<h1 class="text-5xl md:text-6xl font-bold text-white mb-6">AgentCon, Bletchley</h1>
+<p class="text-xl md:text-2xl text-white/90 mb-8">Building the future with AI agents</p>
+<p class="text-lg text-white/80 mb-12">Join industry leaders and experts to explore the future of AI agents in the workplace</p>
+<button class="bg-white text-primary px-8 py-3 !rounded-button font-bold text-lg hover:bg-gray-100 transition-colors shadow-lg whitespace-nowrap">Secure Your Ticket</button>
+</div>
+<div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+<i class="ri-arrow-down-line ri-2x text-white"></i>
+</div>
+</div>
+</section>
+<!-- Why Come Section -->
+<section id="why-come" class="py-20 bg-gray-50">
+<div class="container mx-auto px-6">
+<h2 class="text-4xl font-bold text-center mb-16">Why Come</h2>
+<div class="grid md:grid-cols-2 gap-12">
+<div class="bg-white p-8 rounded shadow-lg hover:shadow-xl transition-shadow">
+<div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-6">
+<i class="ri-global-line ri-2x text-primary"></i>
+</div>
+<h3 class="text-2xl font-bold mb-4">Global Recognition</h3>
+<p class="text-gray-700 mb-4">AI Agents were the hottest topic at the World Economic Forum in Davos, January 2025. Numerous tech leaders predicted agents will be our co-workers by 2027. Are you ready to build the future?</p>
+</div>
+<div class="bg-white p-8 rounded shadow-lg hover:shadow-xl transition-shadow">
+<div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-6">
+<i class="ri-award-line ri-2x text-primary"></i>
+</div>
+<h3 class="text-2xl font-bold mb-4">Pioneering Event</h3>
+<p class="text-gray-700 mb-4">AgentCon, Bletchley is the first large-scale event in the UK focussed on AI Agents at scale. We bring together technical experts, professors and people who have led implementations across enterprise, scale-ups and public sector.</p>
+</div>
+</div>
+<div class="mt-16 bg-white p-8 rounded shadow-lg">
+<div class="flex flex-col md:flex-row items-center">
+<div class="w-full md:w-1/2 mb-8 md:mb-0 md:pr-8">
+<img src="https://static.readdy.ai/image/9f75aeb370e3faaf4a59fdfcb3fb62ad/fd336051037a666614a2c6750a4e594a.png" alt="Conference audience" class="rounded-lg shadow-md w-full h-auto object-cover">
+</div>
+<div class="w-full md:w-1/2">
+<h3 class="text-2xl font-bold mb-4">Join the AI Agent Revolution</h3>
+<p class="text-gray-700 mb-6">This exclusive event brings together the brightest minds in AI agent technology, offering unparalleled networking opportunities and insights into cutting-edge developments that will shape the future of work.</p>
+<ul class="space-y-3">
+<li class="flex items-start">
+<div class="w-6 h-6 flex items-center justify-center text-primary mr-2">
+<i class="ri-check-line"></i>
+</div>
+<span>Deep-Dive Talks from AI pioneers and industry leaders</span>
+</li>
+<li class="flex items-start">
+<div class="w-6 h-6 flex items-center justify-center text-primary mr-2">
+<i class="ri-check-line"></i>
+</div>
+<span>Technical Workshops on building, deploying, and scaling agents</span>
+</li>
+<li class="flex items-start">
+<div class="w-6 h-6 flex items-center justify-center text-primary mr-2">
+<i class="ri-check-line"></i>
+</div>
+<span>Live Demos of powerful open-source frameworks and tools</span>
+</li>
+<li class="flex items-start">
+<div class="w-6 h-6 flex items-center justify-center text-primary mr-2">
+<i class="ri-check-line"></i>
+</div>
+<span>Networking with a global community of builders and innovators</span>
+</li>
+</ul>
+<p class="text-gray-700 mt-6 italic">This isn't just another AI event — it's where developers meet to talk about real code.</p>
+<p class="text-gray-700 mt-4 font-medium">Ready to build the future? Join us in Bletchley.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Who Should Attend Section -->
+<section id="who-should-attend" class="py-20 bg-white">
+<div class="container mx-auto px-6">
+<h2 class="text-4xl font-bold text-center mb-6">Who Should Attend</h2>
+<p class="text-xl text-center text-gray-600 mb-16">We recommend each organization brings several team members to get the most out of the day.</p>
+<div class="grid md:grid-cols-2 gap-12">
+<div class="bg-primary/5 p-8 rounded-lg border border-primary/20 hover:shadow-lg transition-shadow">
+<div class="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mb-6 mx-auto">
+<i class="ri-code-box-line ri-2x text-primary"></i>
+</div>
+<h3 class="text-2xl font-bold text-center mb-4">Technical Track</h3>
+<p class="text-center text-gray-700 mb-6">Perfect for CTOs, Heads of Data & AI and their hands-on teams</p>
+<ul class="space-y-3">
+<li class="flex items-start">
+<div class="w-6 h-6 flex items-center justify-center text-primary mr-2">
+<i class="ri-check-line"></i>
+</div>
+<span>Deep dives into agent architecture</span>
+</li>
+<li class="flex items-start">
+<div class="w-6 h-6 flex items-center justify-center text-primary mr-2">
+<i class="ri-check-line"></i>
+</div>
+<span>Implementation best practices</span>
+</li>
+<li class="flex items-start">
+<div class="w-6 h-6 flex items-center justify-center text-primary mr-2">
+<i class="ri-check-line"></i>
+</div>
+<span>Technical workshops and demos</span>
+</li>
+<li class="flex items-start">
+<div class="w-6 h-6 flex items-center justify-center text-primary mr-2">
+<i class="ri-check-line"></i>
+</div>
+<span>Integration strategies</span>
+</li>
+</ul>
+</div>
+<div class="bg-secondary/5 p-8 rounded-lg border border-secondary/20 hover:shadow-lg transition-shadow">
+<div class="w-20 h-20 bg-secondary/10 rounded-full flex items-center justify-center mb-6 mx-auto">
+<i class="ri-team-line ri-2x text-secondary"></i>
+</div>
+<h3 class="text-2xl font-bold text-center mb-4">Leadership Track</h3>
+<p class="text-center text-gray-700 mb-6">Aimed at COOs, Chief People Officers, Head of Transformation, change-makers, rebels and disrupters</p>
+<ul class="space-y-3">
+<li class="flex items-start">
+<div class="w-6 h-6 flex items-center justify-center text-secondary mr-2">
+<i class="ri-check-line"></i>
+</div>
+<span>Strategic implementation roadmaps</span>
+</li>
+<li class="flex items-start">
+<div class="w-6 h-6 flex items-center justify-center text-secondary mr-2">
+<i class="ri-check-line"></i>
+</div>
+<span>Governance frameworks</span>
+</li>
+<li class="flex items-start">
+<div class="w-6 h-6 flex items-center justify-center text-secondary mr-2">
+<i class="ri-check-line"></i>
+</div>
+<span>Ethical considerations</span>
+</li>
+<li class="flex items-start">
+<div class="w-6 h-6 flex items-center justify-center text-secondary mr-2">
+<i class="ri-check-line"></i>
+</div>
+<span>Organizational change management</span>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<!-- Keynote Speakers Section -->
+<section id="speakers" class="py-20 bg-gray-50">
+<div class="container mx-auto px-6">
+<h2 class="text-4xl font-bold text-center mb-16">Keynote Speakers</h2>
+<div class="grid md:grid-cols-2 gap-12">
+<div class="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
+<div class="h-64 overflow-hidden bg-gradient-to-b from-gray-100 to-gray-200">
+<img src="https://static.readdy.ai/image/9f75aeb370e3faaf4a59fdfcb3fb62ad/9de7d9cc93a2481287bb6de502bcf4c3.png" alt="Chris Huntingford" class="w-full h-full object-contain bg-center">
+</div>
+<div class="p-6">
+<h3 class="text-2xl font-bold mb-2">Chris Huntingford</h3>
+<p class="text-primary font-medium mb-4">Head of AI at ANS Group</p>
+<p class="text-gray-700 mb-4">With over 15 years of experience in AI and machine learning, Chris leads the AI strategy at ANS Group, focusing on practical enterprise applications of agent technology.</p>
+<div class="flex space-x-4">
+<a href="https://www.linkedin.com/in/chrishuntingford/" class="text-gray-500 hover:text-primary transition-colors">
+<div class="w-8 h-8 flex items-center justify-center">
+<i class="ri-linkedin-fill ri-lg"></i>
+</div>
+</a>
+<a href="#" class="text-gray-500 hover:text-primary transition-colors">
+<div class="w-8 h-8 flex items-center justify-center">
+<i class="ri-twitter-x-fill ri-lg"></i>
+</div>
+</a>
+</div>
+</div>
+</div>
+<div class="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
+<div class="h-64 overflow-hidden">
+<img src="https://static.readdy.ai/image/9f75aeb370e3faaf4a59fdfcb3fb62ad/9dac14ed163c76072603469269ba9640.png" alt="Dona Sarkar" class="w-full h-full object-contain">
+</div>
+<div class="p-6">
+<h3 class="text-2xl font-bold mb-2">Dona Sarkar</h3>
+<p class="text-primary font-medium mb-4">Chief Agent Troublemaker at Microsoft</p>
+<p class="text-gray-700 mb-4">Dona is a renowned innovator in the AI agent space, leading Microsoft's cutting-edge research and implementation of agent technology across their product ecosystem.</p>
+<div class="flex space-x-4">
+<a href="https://www.linkedin.com/in/donasarkar/" class="text-gray-500 hover:text-primary transition-colors">
+<div class="w-8 h-8 flex items-center justify-center">
+<i class="ri-linkedin-fill ri-lg"></i>
+</div>
+</a>
+<a href="#" class="text-gray-500 hover:text-primary transition-colors">
+<div class="w-8 h-8 flex items-center justify-center">
+<i class="ri-twitter-x-fill ri-lg"></i>
+</div>
+</a>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-12 text-center">
+<p class="text-lg text-gray-600 mb-6">Plus many more industry experts and thought leaders to be announced</p>
+<button class="bg-white border border-primary text-primary px-6 py-3 !rounded-button font-medium hover:bg-primary hover:text-white transition-colors whitespace-nowrap">View All Speakers</button>
+</div>
+</div>
+</section>
+<!-- Partnerships Section -->
+<section class="py-20 bg-gray-50">
+<div class="container mx-auto px-6">
+<h2 class="text-4xl font-bold text-center mb-16">Our Partnerships</h2>
+<div class="grid md:grid-cols-3 gap-8">
+<div class="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
+<div class="w-32 h-32 mb-6 mx-auto">
+<img src="https://static.readdy.ai/image/9f75aeb370e3faaf4a59fdfcb3fb62ad/00e92dc794271e1947f9c356b0417751.png" alt="Global AI Community Logo" class="w-full h-full object-contain">
+</div>
+<h3 class="text-xl font-bold mb-4">Global AI Community</h3>
+<p class="text-gray-700">Global developer community of over 101,000 members exploring and using AI</p>
+</div>
+<div class="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
+<div class="w-32 h-32 mx-auto mb-6">
+<img src="https://static.readdy.ai/image/9f75aeb370e3faaf4a59fdfcb3fb62ad/cfdf224b7c6b3e91e165f861aaaff344.png" alt="UK AI User Groups Logo" class="w-full h-full object-contain">
+</div>
+<h3 class="text-xl font-bold mb-4">UK AI User Groups</h3>
+<p class="text-gray-700">Over 700 attendees since December 2023 including technical team members and non-technical leaders, challengers and disruptors</p>
+</div>
+<div class="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
+<div class="w-32 h-32 mx-auto mb-6">
+<img src="https://static.readdy.ai/image/9f75aeb370e3faaf4a59fdfcb3fb62ad/d7a1f1f592f85499b04e37decbe5480c.jpeg" alt="Microsoft Logo" class="w-full h-full object-contain">
+</div>
+<h3 class="text-xl font-bold mb-4">Microsoft</h3>
+<p class="text-gray-700">Microsoft are providing international event speakers and co-host</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Event Details Section -->
+<section id="details" class="py-20 bg-white">
+<div class="container mx-auto px-6">
+<h2 class="text-4xl font-bold text-center mb-16">Event Details</h2>
+<div class="grid md:grid-cols-3 gap-8">
+<div class="bg-gray-50 p-8 rounded-lg text-center hover:shadow-md transition-shadow">
+<div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-6 mx-auto">
+<i class="ri-calendar-line ri-2x text-primary"></i>
+</div>
+<h3 class="text-xl font-bold mb-2">Date</h3>
+<p class="text-gray-700">24 June 2025</p>
+</div>
+<div class="bg-gray-50 p-8 rounded-lg text-center hover:shadow-md transition-shadow">
+<div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-6 mx-auto">
+<i class="ri-time-line ri-2x text-primary"></i>
+</div>
+<h3 class="text-xl font-bold mb-2">Time</h3>
+<p class="text-gray-700">09:00 to 17:00</p>
+</div>
+<div class="bg-gray-50 p-8 rounded-lg text-center hover:shadow-md transition-shadow">
+<div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-6 mx-auto">
+<i class="ri-ticket-line ri-2x text-primary"></i>
+</div>
+<h3 class="text-xl font-bold mb-2">Tickets</h3>
+<p class="text-gray-700">Early bird tickets £15</p>
+</div>
+</div>
+<div class="mt-16 bg-gray-50 p-8 rounded-lg">
+<h3 class="text-2xl font-bold mb-6 text-center">Event Schedule</h3>
+<div class="space-y-6">
+<div class="flex flex-col md:flex-row">
+<div class="md:w-1/4 font-bold text-primary mb-2 md:mb-0">09:00 - 09:30</div>
+<div class="md:w-3/4">
+<h4 class="font-bold">Registration</h4>
+<p class="text-gray-600">Meet fellow attendees over coffee and pastries</p>
+</div>
+</div>
+<div class="flex flex-col md:flex-row">
+<div class="md:w-1/4 font-bold text-primary mb-2 md:mb-0">09:30 - 10:30</div>
+<div class="md:w-3/4">
+<h4 class="font-bold">Opening Keynote</h4>
+<p class="text-gray-600">The Future of AI Agents in the Workplace</p>
+</div>
+</div>
+<div class="flex flex-col md:flex-row">
+<div class="md:w-1/4 font-bold text-primary mb-2 md:mb-0">10:45 - 12:15</div>
+<div class="md:w-3/4">
+<h4 class="font-bold">Parallel Sessions</h4>
+<p class="text-gray-600">Technical Track & Leadership Track</p>
+</div>
+</div>
+<div class="flex flex-col md:flex-row">
+<div class="md:w-1/4 font-bold text-primary mb-2 md:mb-0">12:15 - 13:30</div>
+<div class="md:w-3/4">
+<h4 class="font-bold">Networking Lunch</h4>
+<p class="text-gray-600">Connect with speakers and attendees</p>
+</div>
+</div>
+<div class="flex flex-col md:flex-row">
+<div class="md:w-1/4 font-bold text-primary mb-2 md:mb-0">13:30 - 15:00</div>
+<div class="md:w-3/4">
+<h4 class="font-bold">Case Studies & Workshops</h4>
+<p class="text-gray-600">Real-world implementations and hands-on sessions</p>
+</div>
+</div>
+<div class="flex flex-col md:flex-row">
+<div class="md:w-1/4 font-bold text-primary mb-2 md:mb-0">15:15 - 16:30</div>
+<div class="md:w-3/4">
+<h4 class="font-bold">Main Stage: A developer guide to Copilot Studio</h4>
+<p class="text-gray-600">Deep dive into Microsoft's latest AI development platform</p>
+</div>
+</div>
+<div class="flex flex-col md:flex-row">
+<div class="md:w-3/4 ml-auto">
+<h4 class="font-bold">Breakout 1: Panel Discussion</h4>
+<p class="text-gray-600">The Ethical Implications of AI Agents</p>
+</div>
+</div>
+<div class="flex flex-col md:flex-row">
+<div class="md:w-1/4 font-bold text-primary mb-2 md:mb-0">16:30 - 17:00</div>
+<div class="md:w-3/4">
+<h4 class="font-bold">Closing Remarks & Networking</h4>
+<p class="text-gray-600">Final thoughts and continued discussions</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Venue Showcase Section -->
+<section id="venue" class="py-20 bg-gray-50">
+<div class="container mx-auto px-6">
+<h2 class="text-4xl font-bold text-center mb-16">Venue Showcase</h2>
+<div class="grid md:grid-cols-3 gap-8">
+<div class="flip-card h-96">
+<div class="flip-card-inner">
+<div class="flip-card-front bg-white shadow-lg">
+<img src="https://static.readdy.ai/image/9f75aeb370e3faaf4a59fdfcb3fb62ad/51236945f0127cf04515b5ef52e079b5.jpeg" alt="Bletchley Park Auditorium" class="w-full h-3/4 object-contain">
+<div class="p-4">
+<h3 class="text-xl font-bold">Bletchley Park Auditorium</h3>
+<p class="text-gray-600">Main conference venue</p>
+</div>
+</div>
+<div class="flip-card-back bg-primary text-white p-6">
+<h3 class="text-xl font-bold mb-4">Bletchley Park Auditorium</h3>
+<p class="mb-4">Bletchley Park is the home of the codebreakers from WWII, including Alan Turing. It is renowned as the place AI was conceived.</p>
+<p class="mb-4">They hosted the first AI Safety Summit in November 2023 attended by world leaders and tech leaders in November 2023.</p>
+<p>This is an opportunity to learn about the next generation of AI in one of the most important places in AI history.</p>
+</div>
+</div>
+</div>
+<div class="flip-card h-96">
+<div class="flip-card-inner">
+<div class="flip-card-front bg-white shadow-lg">
+<img src="https://static.readdy.ai/image/9f75aeb370e3faaf4a59fdfcb3fb62ad/655ddf77106025593663f095653e49ec.jpeg" alt="Innovation Hub" class="w-full h-3/4 object-cover object-top">
+<div class="p-4">
+<h3 class="text-xl font-bold">Innovation Hub</h3>
+<p class="text-gray-600">Workshops & demonstrations</p>
+</div>
+</div>
+<div class="flip-card-back bg-primary text-white p-6">
+<h3 class="text-xl font-bold mb-4">Innovation Hub</h3>
+<p class="mb-4">Our state-of-the-art Innovation Hub provides the perfect environment for hands-on workshops and technical demonstrations.</p>
+<p class="mb-4">Equipped with the latest technology, this space allows attendees to experience AI agents in action and participate in interactive sessions.</p>
+<p>The hub accommodates up to 125 participants in a collaborative setting.</p>
+</div>
+</div>
+</div>
+<div class="flip-card h-96">
+<div class="flip-card-inner">
+<div class="flip-card-front bg-white shadow-lg">
+<img src="https://static.readdy.ai/image/9f75aeb370e3faaf4a59fdfcb3fb62ad/6583808b285e4c45f450fa626148f345.jpeg" alt="Breakout Spaces" class="w-full h-3/4 object-contain">
+<div class="p-4">
+<h3 class="text-xl font-bold">Breakout Spaces</h3>
+<p class="text-gray-600">Connect with industry leaders</p>
+</div>
+</div>
+<div class="flip-card-back bg-primary text-white p-6">
+<h3 class="text-xl font-bold mb-4">Breakout Spaces</h3>
+<p class="mb-4">Our dedicated breakout spaces provide comfortable areas for meaningful connections throughout the day.</p>
+<p class="mb-4">Located in the historic South Central Institute of Technology building, these spaces blend heritage with modern amenities.</p>
+<p>Refreshments will be available throughout the day to fuel your discussions.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-16">
+<div class="bg-white p-8 rounded-lg shadow-lg">
+<div class="flex flex-col md:flex-row items-center">
+<div class="w-full md:w-1/2 mb-8 md:mb-0 md:pr-8">
+<img src="https://static.readdy.ai/image/9f75aeb370e3faaf4a59fdfcb3fb62ad/074175e53d7c3dc1054af7c5e577822d.png" alt="Bletchley Park Campus" class="rounded-lg shadow-md w-full h-auto object-cover">
+</div>
+<div class="w-full md:w-1/2">
+<h3 class="text-2xl font-bold mb-4">A Historic Setting for Future Innovation</h3>
+<p class="text-gray-700 mb-6">Bletchley Park and the South Central Institute of Technology provide a unique backdrop for AgentCon, blending the rich history of computing with cutting-edge technology.</p>
+<div class="space-y-4">
+<div class="flex items-start">
+<div class="w-8 h-8 flex items-center justify-center text-primary mr-3">
+<i class="ri-map-pin-line ri-lg"></i>
+</div>
+<div>
+<h4 class="font-bold">Location</h4>
+<p class="text-gray-600">Bletchley Park, Milton Keynes, UK</p>
+</div>
+</div>
+<div class="flex items-start">
+<div class="w-8 h-8 flex items-center justify-center text-primary mr-3">
+<i class="ri-train-line ri-lg"></i>
+</div>
+<div>
+<h4 class="font-bold">Transport</h4>
+<p class="text-gray-600">30 minutes from London by train</p>
+</div>
+</div>
+<div class="flex items-start">
+<div class="w-8 h-8 flex items-center justify-center text-primary mr-3">
+<i class="ri-hotel-line ri-lg"></i>
+</div>
+<div>
+<h4 class="font-bold">Accommodation</h4>
+<p class="text-gray-600">Special rates at nearby hotels</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Call to Action Section -->
+<section class="py-20 bg-gradient-to-r from-primary to-secondary text-white">
+<div class="container mx-auto px-6">
+<div class="text-center mb-12">
+<h2 class="text-4xl font-bold mb-6">Secure Your Place at AgentCon</h2>
+<p class="text-xl opacity-90 max-w-2xl mx-auto">Limited tickets available. Don't miss this opportunity to be part of the UK's premier AI agent technology event.</p>
+</div>
+<div class="flex justify-center mb-12">
+<div id="countdown" class="flex">
+<div class="countdown-item">
+<div class="countdown-value" id="days">00</div>
+<div class="countdown-label">Days</div>
+</div>
+<div class="countdown-item">
+<div class="countdown-value" id="hours">00</div>
+<div class="countdown-label">Hours</div>
+</div>
+<div class="countdown-item">
+<div class="countdown-value" id="minutes">00</div>
+<div class="countdown-label">Minutes</div>
+</div>
+<div class="countdown-item">
+<div class="countdown-value" id="seconds">00</div>
+<div class="countdown-label">Seconds</div>
+</div>
+</div>
+</div>
+<div class="max-w-xl mx-auto bg-white rounded-lg p-8 text-gray-800">
+<h3 class="text-2xl font-bold mb-6 text-center">Reach out now to sponsor</h3>
+<form class="space-y-6">
+<div class="grid md:grid-cols-2 gap-6">
+<div>
+<label for="name" class="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
+<input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-colors" placeholder="John Smith">
+</div>
+<div>
+<label for="company" class="block text-sm font-medium text-gray-700 mb-1">Company</label>
+<input type="text" id="company" class="w-full px-4 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-colors" placeholder="Acme Inc.">
+</div>
+</div>
+<div>
+<label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
+<input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-colors" placeholder="john@example.com">
+</div>
+<div>
+<label for="message" class="block text-sm font-medium text-gray-700 mb-1">How would you like to sponsor?</label>
+<textarea id="message" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-colors" placeholder="Tell us about your sponsorship interests..."></textarea>
+</div>
+<div class="flex justify-center">
+<button type="submit" class="bg-primary text-white px-8 py-3 !rounded-button font-bold hover:bg-opacity-90 transition-colors whitespace-nowrap">Submit Inquiry</button>
+</div>
+</form>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-gray-900 text-white py-12">
+<div class="container mx-auto px-6">
+<div class="grid md:grid-cols-3 gap-8">
+<div>
+<a href="#" class="block mb-4">
+<img src="https://static.readdy.ai/image/9f75aeb370e3faaf4a59fdfcb3fb62ad/074a244c9a5161e9bb49ec960c9bcd74.png" alt="AgentCon Logo" class="h-12">
+</a>
+<p class="text-gray-400 mb-6">Building the future with AI agents</p>
+<div class="flex space-x-4">
+<a href="https://www.linkedin.com/company/100379878/" class="text-gray-400 hover:text-white transition-colors">
+<div class="w-10 h-10 flex items-center justify-center">
+<i class="ri-twitter-x-fill ri-lg"></i>
+</div>
+</a>
+<a href="https://www.linkedin.com/company/100379878/" class="text-gray-400 hover:text-white transition-colors">
+<div class="w-10 h-10 flex items-center justify-center">
+<i class="ri-linkedin-fill ri-lg"></i>
+</div>
+</a>
+<a href="https://www.linkedin.com/company/100379878/" class="text-gray-400 hover:text-white transition-colors">
+<div class="w-10 h-10 flex items-center justify-center">
+<i class="ri-youtube-fill ri-lg"></i>
+</div>
+</a>
+</div>
+</div>
+<div>
+<h4 class="text-lg font-bold mb-4">Quick Links</h4>
+<ul class="space-y-2">
+<li><a href="https://www.linkedin.com/company/100379878/" class="text-gray-400 hover:text-white transition-colors">Home</a></li>
+<li><a href="#why-come" class="text-gray-400 hover:text-white transition-colors">Why Come</a></li>
+<li><a href="#who-should-attend" class="text-gray-400 hover:text-white transition-colors">Who Should Attend</a></li>
+<li><a href="#speakers" class="text-gray-400 hover:text-white transition-colors">Speakers</a></li>
+<li><a href="#details" class="text-gray-400 hover:text-white transition-colors">Event Details</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-lg font-bold mb-4">Contact</h4>
+<ul class="space-y-2">
+<li class="flex items-start">
+<div class="w-5 h-5 flex items-center justify-center text-gray-400 mr-2 mt-0.5">
+<i class="ri-mail-line"></i>
+</div>
+<span class="text-gray-400">info@agentcon.uk</span>
+</li>
+<li class="flex items-start">
+<div class="w-5 h-5 flex items-center justify-center text-gray-400 mr-2 mt-0.5">
+<i class="ri-phone-line"></i>
+</div>
+<span class="text-gray-400">+44 (0) 7518605205</span>
+</li>
+<li class="flex items-start">
+<div class="w-5 h-5 flex items-center justify-center text-gray-400 mr-2 mt-0.5">
+<i class="ri-map-pin-line"></i>
+</div>
+<span class="text-gray-400">Bletchley, UK</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-500">
+<p>&copy; 2025 UK AI Events Ltd. All rights reserved.</p>
+</div>
+</div>
+</footer>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+// Countdown Timer
+const countdownDate = new Date('June 24, 2025 09:00:00').getTime();
+function updateCountdown() {
+const now = new Date().getTime();
+const distance = countdownDate - now;
+const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+document.getElementById('days').innerText = days.toString().padStart(2, '0');
+document.getElementById('hours').innerText = hours.toString().padStart(2, '0');
+document.getElementById('minutes').innerText = minutes.toString().padStart(2, '0');
+document.getElementById('seconds').innerText = seconds.toString().padStart(2, '0');
+if (distance < 0) {
+clearInterval(x);
+document.getElementById('countdown').innerHTML = '<p class="text-2xl font-bold">Event In Progress!</p>';
+}
+}
+updateCountdown();
+const x = setInterval(updateCountdown, 1000);
+});
+document.addEventListener('DOMContentLoaded', function() {
+// Smooth scrolling for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+anchor.addEventListener('click', function(e) {
+e.preventDefault();
+const targetId = this.getAttribute('href');
+if (targetId === '#') return;
+const targetElement = document.querySelector(targetId);
+if (targetElement) {
+window.scrollTo({
+top: targetElement.offsetTop - 80,
+behavior: 'smooth'
+});
+}
+});
+});
+});
+</script>
+</body>
+</html>
